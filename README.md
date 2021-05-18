@@ -48,9 +48,9 @@ Vue.use(SliderVerify)
 ### script标签
 > 实际使用建议**下载到本地或服务器**
 
-- **引入样式：** [https://portal.fuyunfeng.top/files/plugins/v2/SliderVerify/SliderVerify.css](https://portal.fuyunfeng.top/files/plugins/v2/SliderVerify/SliderVerify.css)
+- **引入样式：** [https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.css](https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.css)
 
-- **引入JS：** [https://portal.fuyunfeng.top/files/plugins/v2/SliderVerify/SliderVerify.umd.js](https://portal.fuyunfeng.top/files/plugins/v2/SliderVerify/SliderVerify.umd.js)
+- **引入JS：** [https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.umd.js](https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.umd.js)
 
 
 ```html
