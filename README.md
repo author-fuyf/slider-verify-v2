@@ -1,132 +1,82 @@
-> A Vue.js 2.0 UI Toolkit for Web.
 ## Demo演示
 
 > **plugins_v2**：[https://portal.fuyunfeng.top/plugins_v2/index.html](https://portal.fuyunfeng.top/plugins_v2/index.html)  
 
+## 使用
 
-<br />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- **在 js / jq 中使用 [lucky-canvas](https://github.com/luckdraw/lucky-canvas)**
-
-- **在 vue 中使用 [vue-luck-draw](https://github.com/luckdraw/vue-luck-draw)**
-
-- **在 react 中使用 [react-luck-draw](https://github.com/luckdraw/react-luck-draw)**
-
-- **在 uni-app 中使用 [uni-luck-draw](https://github.com/luckdraw/uni-luck-draw)**
-
-- **在 taro 中使用 [taro-luck-draw](https://github.com/luckdraw/taro-luck-draw)**
-
-- **在 微信小程序 中使用 [mini-luck-draw](https://github.com/luckdraw/mini-luck-draw)**
-
-<br />
-
-## 在 vue2.x / vue3.x 中使用
-
-### 方式 1：通过 import 引入
+### vue-cli
+> vue-cli 中使用
 
 1. 首先安装插件
 
 ```shell
 # npm 安装：
-npm install vue-luck-draw
-
-# yarn 安装：
-yarn add vue-luck-draw
+npm install slider-verify-v2 -S
 ```
 
-2. 然后找到 `main.js` 引入插件并 `use`
+2. `main.js` 中引入
 
 ```js
-// vue2.x
-import LuckDraw from 'vue-luck-draw'
-Vue.use(LuckDraw)
-
-// vue3.x
-import LuckDraw from 'vue-luck-draw/vue3'
-createApp(App).use(LuckDraw).mount('#app')
+import SliderVerify from 'slider-verify-v2';
+import 'slider-verify-v2/lib/SliderVerify.css'
+Vue.use(SliderVerify);
 ```
 
-3. 最后在组件内使用 **`<LuckyWheel />`大转盘抽奖** 或 **`<LuckyGrid />`九宫格抽奖**
+3. 组件中声明
 
 ```vue
 <template>
   <div>
-    <!-- 大转盘抽奖 -->
-    <LuckyWheel
-      width="200px"
-      height="200px"
-      ...你的配置
-    />
-    <!-- 九宫格抽奖 -->
-    <LuckyGrid
-      width="200px"
-      height="200px"
-      ...你的配置
-    />
+    <SliderVerify
+      :imgUrl="sliderVConf.imgUrl"
+      :sText="sliderVConf.sText"
+      :eText="sliderVConf.eText"
+      :isShowSelf.sync="sliderVConf.isShowSelf"
+      :isBorder="sliderVConf.isBorder"
+      :isParentNode="sliderVConf.isParentNode"
+      :isCloseBtn="sliderVConf.isCloseBtn"
+      :isReloadBtn="sliderVConf.isReloadBtn"
+      :width="sliderVConf.width"
+      :height="sliderVConf.height"
+    ></SliderVerify>
   </div>
 </template>
 ```
 
-<br />
+### script标签
+> 实际使用建议**下载到本地或服务器**
 
-### 方式 2：通过 script 标签引入
+- **引入样式：** [https://portal.fuyunfeng.top/files/plugins/v2/SliderVerify/SliderVerify.css](https://portal.fuyunfeng.top/files/plugins/v2/SliderVerify/SliderVerify.css)
 
-> 为了避免 CDN 链接出现异常或波动，我非常建议你**缓存到本地或服务器(✿◡‿◡)**
-
-- **vue2.x：** [https://cdn.jsdelivr.net/npm/vue-luck-draw@3.4/dist/vue-luck-draw.umd.min.js](https://cdn.jsdelivr.net/npm/vue-luck-draw@3.4/dist/vue-luck-draw.umd.min.js)
-
-- **vue3.x：** [https://cdn.jsdelivr.net/npm/vue-luck-draw@3.4/vue3/vue-luck-draw.umd.min.js](https://cdn.jsdelivr.net/npm/vue-luck-draw@3.4/vue3/vue-luck-draw.umd.min.js)
+- **引入JS：** [https://portal.fuyunfeng.top/files/plugins/v2/SliderVerify/SliderVerify.umd.js](https://portal.fuyunfeng.top/files/plugins/v2/SliderVerify/SliderVerify.umd.js)
 
 
 ```html
-<div id="app">
-  <!-- 大转盘抽奖 -->
-  <lucky-wheel
-    width="200px"
-    height="200px"
-    ...你的配置
-  />
-  <!-- 九宫格抽奖 -->
-  <lucky-grid
-    width="200px"
-    height="200px"
-    ...你的配置
-  />
-</div>
+<meta charset="utf-8">
+<title>SliderVerify demo</title>
+<link rel="stylesheet" href="./SliderVerify.css">
+<body>
+  <div id="app">
+    <slider-verify :is-show-self="isShowSelf"></slider-verify>
+  </div>
+</body>
 <script src="./vue.min.js"></script>
-<script src="./vue-luck-draw.umd.min.js"></script>
+<script src="./SliderVerify.umd.js"></script>
+
 <script>
   new Vue({
-    el: '#app',
-    data () {
-      return {}
+    data() {
+      return {
+        isShowSelf: true
+      }
     }
-  })
+  }).$mount('#app')
 </script>
 ```
 
-<br />
+## 参考链接
 
-### **如果您觉得这个项目还不错, 可以在 [Github](https://github.com/LuckDraw/vue-luck-draw) 上面帮我点个`star` ☜(ﾟヮﾟ☜)**
-
-
-<br />
-
-## 友情链接
-
-- [🎁 h5-Dooring 一款功能强大，高可扩展的H5可视化编辑器](https://github.com/MrXujiang/h5-Dooring)
+- [https://juejin.cn/post/6844903940262199303](https://juejin.cn/post/6844903940262199303)
+- [https://www.jb51.net/article/137129.htm](https://www.jb51.net/article/137129.htm)
 
 
