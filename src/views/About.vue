@@ -1,7 +1,13 @@
 <template>
   <div class="about">
     <div class="opreation">
-      <span @click="imgUrl = 'https://portal.fuyunfeng.top/files/images/SliderVerify-31.jpg'">imgUrl</span>
+      <span
+        @click="
+          imgUrl =
+            'https://portal.fuyunfeng.top/files/images/SliderVerify-31.jpg'
+        "
+        >imgUrl</span
+      >
       <span @click="isShowSelf = !isShowSelf">isShowSelf</span>
       <span @click="width = 400">width 400</span>
       <span @click="height = 200">height 220</span>
@@ -70,19 +76,23 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
-.dialog {
-  width: 35%;
-  // width: 400px;
-  text-align: center;
-  margin: 0 auto;
-  // border 1px solid
-}
+.about {
+  margin-top 50px
 
-.opreation {
-  display: flex;
+  .dialog {
+    width: 35%;
+    // width: 400px;
+    text-align: center;
+    margin: 20px auto 0;
+    // border 1px solid
+  }
 
-  span {
-    margin-left: 20px;
+  .opreation {
+    display: flex;
+
+    span {
+      margin-left: 20px;
+    }
   }
 }
 </style>

@@ -1,6 +1,8 @@
 {
-  "name": "@fuyf/slider-verify-v2",
+  "name": "slider-verify-v2",
   "version": "0.0.6",
+  "description": "",
+  "author": "fuyf",
   "main": "./lib/SliderVerify.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
