@@ -1,3 +1,5 @@
+一个基于vue.js和canvas的滑块校验插件, 支持PC、移动端.
+
 ## Demo演示
 
 > **plugins_v2**：[https://portal.fuyunfeng.top/plugins_v2/index.html](https://portal.fuyunfeng.top/plugins_v2/index.html)  
@@ -17,9 +19,9 @@ npm install slider-verify-v2 -S
 2. `main.js` 中引入
 
 ```js
-import SliderVerify from 'slider-verify-v2';
+import SliderVerify from 'slider-verify-v2'
 import 'slider-verify-v2/lib/SliderVerify.css'
-Vue.use(SliderVerify);
+Vue.use(SliderVerify)
 ```
 
 3. 组件中声明
@@ -57,7 +59,7 @@ Vue.use(SliderVerify);
 <link rel="stylesheet" href="./SliderVerify.css">
 <body>
   <div id="app">
-    <slider-verify :is-show-self="isShowSelf"></slider-verify>
+    <slider-verify :is-show-self.sync="isShowSelf"></slider-verify>
   </div>
 </body>
 <script src="./vue.min.js"></script>
@@ -73,6 +75,27 @@ Vue.use(SliderVerify);
   }).$mount('#app')
 </script>
 ```
+## 更详细的
+### 参数
+
+- __isShowSelf__: 显隐控制，组件自身提供关闭功能按钮，建议与.sync修饰符绑定，否则需要在`close`回调事件中自行处理, 默认 `false`.
+- __width__: 图片宽度 默认 `300`.
+- __height__: 图片高度 默认 `180`.
+- __imgUrl__: 自定义图片地址, 如https://...的绝对路径, 需要设置资源允许跨域, `默认图片随机切换`.
+- __sText__: 校验成功的提示, 默认 `验证通过`.
+- __eText__: 校验失败的提示, 默认 `请正确拼合图像`.
+- __isBorder__: 自带的外层边框, 默认 `true`.
+- __isCloseBtn__: 底部操作栏 - 关闭按钮, 默认 `true`.
+- __isReloadBtn__: 底部操作栏 - 刷新按钮, 默认 `true`.
+- __isParentNode__: 是否以父级宽度控制, 在类似其他外部弹窗中调用时很有用, 无需指定宽度, 以父级宽度为准, 默认 `false`
+
+### 事件
+- __show__: 展现时的触发.
+- __close__: 隐藏时的触发.
+- __success__: 校验成功时触发.
+- __fail__: 校验失败时触发.
+- __reload__: 刷新时触发.
+
 
 ## 参考链接
 
