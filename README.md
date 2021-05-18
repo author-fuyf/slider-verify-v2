@@ -1,4 +1,4 @@
-一个基于vue.js和canvas的滑块校验插件, 支持PC、移动端.
+一个基于vue.js和canvas的滑块拼图校验插件, 支持PC、移动端.
 
 ## Demo演示
 
