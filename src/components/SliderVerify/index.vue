@@ -102,7 +102,6 @@ export default {
     }
   },
   props: {
-    // .sync
     isShowSelf: {
       type: Boolean,
       default: false
@@ -172,6 +171,7 @@ export default {
     Loading
   },
   mounted() {
+    console.log('SliderVerify init')
     this.initCanvas()
   },
   methods: {
@@ -186,7 +186,6 @@ export default {
       return document.getElementById("canvas_containe");
     },
     initCanvas() {
-      console.log('init')
       this.loading = true
 
       const bg_canvas = document.getElementById("bg_canvas")

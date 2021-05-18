@@ -1,6 +1,6 @@
 {
   "name": "slider-verify-v2",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "",
   "author": "fuyf",
   "main": "./lib/SliderVerify.umd.min.js",
