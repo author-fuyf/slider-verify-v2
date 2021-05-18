@@ -91,7 +91,7 @@ Vue.use(SliderVerify)
 
 ### 事件
 - __show__: 展现时触发.
-- __show__: 隐藏时触发.
+- __hide__: 隐藏时触发.
 - __close__: 主动关闭时触发.
 - __success__: 校验成功时触发.
 - __fail__: 校验失败时触发.
