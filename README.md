@@ -9,9 +9,9 @@
   <a href="https://www.npmjs.com/package/slider-verify-v2" target="_black">
     <img src="https://img.shields.io/npm/v/slider-verify-v2?color=%23ffca28&logo=npm&style=flat-square" alt="version" />
   </a>
-  <a href="https://www.npmjs.com/package/slider-verify-v2" target="_black">
+<!--   <a href="https://www.npmjs.com/package/slider-verify-v2" target="_black">
     <img src="https://img.shields.io/npm/dm/slider-verify-v2?color=%23ffca28&logo=npm&style=flat-square" alt="downloads" />
-  </a>
+  </a> -->
 </p>
 
 ## Demo演示
