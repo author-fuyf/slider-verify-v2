@@ -2,7 +2,16 @@
   "name": "slider-verify-v2",
   "version": "1.1.0",
   "description": "",
-  "author": "fuyf",
+  "author": "fuyf<771085570@qq.com>",
+  "keywords": [
+    "slider-verify",
+    "vue插件",
+    "滑块校验插件",
+    "拼图校验插件",
+    "vue",
+    "canvas",
+    "javascript"
+  ],
   "main": "./lib/SliderVerify.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
