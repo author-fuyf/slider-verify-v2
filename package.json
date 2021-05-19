@@ -1,6 +1,6 @@
 {
   "name": "slider-verify-v2",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "author": "fuyf",
   "main": "./lib/SliderVerify.umd.min.js",
@@ -36,6 +36,7 @@
   },
   "files": [
     "lib/SliderVerify.umd.min.js",
-    "lib/SliderVerify.css"
+    "lib/SliderVerify.css",
+    "index.d.ts"
   ]
 }
