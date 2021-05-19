@@ -1,4 +1,18 @@
 一个基于vue.js和canvas的滑块拼图校验插件, 支持PC、移动端.
+<p>
+  <a href="https://github.com/author-fuyf/slider-verify-v2/stargazers" target="_black">
+    <img src="https://img.shields.io/github/stars/author-fuyf/slider-verify-v2?color=%23ffca28&logo=github&style=flat-square" alt="stars" />
+  </a>
+  <a href="https://github.com/author-fuyf/slider-verify-v2/network/members" target="_black">
+    <img src="https://img.shields.io/github/forks/author-fuyf/slider-verify-v2?color=%23ffca28&logo=github&style=flat-square" alt="forks" />
+  </a>
+  <a href="https://www.npmjs.com/package/slider-verify-v2" target="_black">
+    <img src="https://img.shields.io/npm/v/slider-verify-v2?color=%23ffca28&logo=npm&style=flat-square" alt="version" />
+  </a>
+  <a href="https://www.npmjs.com/package/slider-verify-v2" target="_black">
+    <img src="https://img.shields.io/npm/dm/slider-verify-v2?color=%23ffca28&logo=npm&style=flat-square" alt="downloads" />
+  </a>
+</p>
 
 ## Demo演示
 
