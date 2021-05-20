@@ -54,6 +54,12 @@ Vue.use(SliderVerify)
       :isReloadBtn="sliderVConf.isReloadBtn"
       :width="sliderVConf.width"
       :height="sliderVConf.height"
+      @reload="emitChange('reload')"
+      @show="emitChange('show')"
+      @hide="emitChange('hide')"
+      @close="emitChange('close')"
+      @success="emitChange('success')"
+      @fail="emitChange('fail')"
     ></SliderVerify>
   </div>
 </template>
@@ -62,9 +68,9 @@ Vue.use(SliderVerify)
 ### script标签
 > 实际使用建议**下载到本地或服务器**
 
-- **引入样式：** [https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.css](https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.css)
+- **引入样式：** [https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify-v2.css](https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify-v2.css)
 
-- **引入JS：** [https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.umd.js](https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.umd.js)
+- **引入JS：** [https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.umd-v2.js](https://portal.fuyunfeng.top/api/files/download_file?file_name=SliderVerify.umd-v2.js)
 
 
 ```html
@@ -73,17 +79,47 @@ Vue.use(SliderVerify)
 <link rel="stylesheet" href="./SliderVerify.css">
 <body>
   <div id="app">
-    <slider-verify :is-show-self.sync="isShowSelf"></slider-verify>
+    <slider-verify 
+      :is-show-self.sync="isShowSelf"
+      :width="width"
+      :height="height"
+      :img-url="imgUrl"
+      :s-text="sText"
+      :e-text="eText"
+      :is-border="isBorder"
+      :is-close-btn="isCloseBtn"
+      :is-reload-btn="isReloadBtn"
+      :is-parent-node="isParentNode"
+      @reload="emitChange('reload')"
+      @show="emitChange('show')"
+      @hide="emitChange('hide')"
+      @close="emitChange('close')"
+      @success="emitChange('success')"
+      @fail="emitChange('fail')"></slider-verify>
   </div>
 </body>
-<script src="./vue.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="./SliderVerify.umd.js"></script>
 
 <script>
   new Vue({
     data() {
       return {
-        isShowSelf: true
+        isShowSelf: true,
+        width: 300,
+        height: 180,
+        imgUrl: '',
+        sText: 'sText',
+        eText: 'eText',
+        isBorder: true,
+        isCloseBtn: true,
+        isReloadBtn: true,
+        isParentNode: false
+      }
+    },
+    methods: {
+      emitChange(type) {
+        console.log(type)
       }
     }
   }).$mount('#app')
