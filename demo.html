@@ -1,22 +1,73 @@
 <meta charset="utf-8">
 <title>SliderVerify demo</title>
 <link rel="stylesheet" href="./SliderVerify.css">
+<style>
+  .demo {
+    padding-left: 50px;
+    margin: 30px auto 0;
+  }
+
+  .opreation span {
+    margin-left: 20px;
+  }
+</style>
 <body>
   <div id="app">
-    <slider-verify :is-show-self.sync="isShowSelf"></slider-verify>
+    <div class="demo">
+      <div class="opreation">
+        <span @click="isShowSelf = !isShowSelf">isShowSelf</span>
+        <span @click="width = 400">width 400</span>
+        <span @click="height = 200">height 220</span>
+        <span @click="imgUrl = 'https://portal.fuyunfeng.top/files/images/SliderVerify-31.jpg'">imgUrl</span>
+        <span @click="sText = '成功'">sText 成功</span>
+        <span @click="eText = '失败'">eText 失败</span>
+        <span @click="isBorder = !isBorder">isBorder 取反</span>
+        <span @click="isParentNode = !isParentNode">isParentNode 取反</span>
+        <span @click="isCloseBtn = !isCloseBtn">isCloseBtn 取反</span>
+        <span @click="isReloadBtn = !isReloadBtn">isReloadBtn 取反</span>
+      </div>
+      <slider-verify 
+        :is-show-self.sync="isShowSelf"
+        :width="width"
+        :height="height"
+        :img-url="imgUrl"
+        :s-text="sText"
+        :e-text="eText"
+        :is-border="isBorder"
+        :is-close-btn="isCloseBtn"
+        :is-reload-btn="isReloadBtn"
+        :is-parent-node="isParentNode"
+        @reload="emitChange('reload')"
+        @show="emitChange('show')"
+        @hide="emitChange('hide')"
+        @close="emitChange('close')"
+        @success="emitChange('success')"
+        @fail="emitChange('fail')"></slider-verify>
+    </div>
   </div>
 </body>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="./SliderVerify.umd.js"></script>
 
 <script>
-  console.log('Vue', Vue.use)
-  console.log('SliderVerify', SliderVerify)
-  Vue.use(SliderVerify)
   new Vue({
     data() {
       return {
-        isShowSelf: true
+        isShowSelf: true,
+        width: 300,
+        height: 180,
+        imgUrl: '',
+        sText: 'sText',
+        eText: 'eText',
+        isBorder: true,
+        isCloseBtn: true,
+        isReloadBtn: true,
+        isParentNode: false
+      }
+    },
+    methods: {
+      emitChange(type) {
+        console.log(type)
       }
     }
   }).$mount('#app')
