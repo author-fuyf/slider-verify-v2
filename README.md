@@ -1,4 +1,4 @@
-一个基于vue.js和canvas的滑块拼图校验插件, 支持PC、移动端.
+一个基于vue2.js和canvas的滑块拼图校验插件, 支持PC、移动端.
 <p>
   <a href="https://github.com/author-fuyf/slider-verify-v2/stargazers" target="_black">
     <img src="https://img.shields.io/github/stars/author-fuyf/slider-verify-v2?color=%23ffca28&logo=github&style=flat-square" alt="stars" />

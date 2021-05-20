@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<title>SliderVerify demo</title>
+<link rel="stylesheet" href="./SliderVerify.css">
+<body>
+  <div id="app">
+    <slider-verify :is-show-self.sync="isShowSelf"></slider-verify>
+  </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="./SliderVerify.umd.js"></script>
+
+<script>
+  console.log('Vue', Vue.use)
+  console.log('SliderVerify', SliderVerify)
+  Vue.use(SliderVerify)
+  new Vue({
+    data() {
+      return {
+        isShowSelf: true
+      }
+    }
+  }).$mount('#app')
+</script>

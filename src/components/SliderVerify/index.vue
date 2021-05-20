@@ -143,6 +143,22 @@ export default {
       default: false
     }
   },
+  computed: {
+    repaint() {
+      const width = this.width
+      const height = this.height
+      const isBorder = this.isBorder
+      const imgUrl = this.imgUrl
+      const isParentNode = this.isParentNode
+      return {
+        width,
+        height,
+        isBorder,
+        imgUrl,
+        isParentNode
+      }
+    }
+  },
   watch: {
     isShowSelf(newVal) {
       if (newVal) {
@@ -150,21 +166,9 @@ export default {
       }
       this.$emit('hide')
     },
-    width() {
+    repaint() {
       this.initCanvas()
-    },
-    height() {
-      this.initCanvas()
-    },
-    isBorder() {
-      this.initCanvas()
-    },
-    imgUrl() {
-      this.initCanvas()
-    },
-    isParentNode() {
-      this.initCanvas()
-    },
+    }
   },
   components: {
     Popup,
