@@ -100,7 +100,7 @@ Vue.use(SliderVerify)
       @fail="emitChange('fail')"></slider-verify>
   </div>
 </body>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.js"></script>
 <script src="./SliderVerify.umd.js"></script>
 
 <script>

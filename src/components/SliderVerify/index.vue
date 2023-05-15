@@ -40,7 +40,10 @@
                 drag(e, 'block_canvas', 'circle')
               }
             "
-            @click="e => drag(e, 'block_canvas', 'circle', true)"
+            @click="e => {
+              terminal = 'mobile'
+              drag(e, 'block_canvas', 'circle', true)
+            }"
           ></canvas>
         </div>
         <div class="slide-box">
@@ -53,7 +56,10 @@
                 drag(e, 'circle', 'block_canvas')
               }
             "
-            @click="e => drag(e, 'circle', 'block_canvas', true)"
+            @click="e => {
+              terminal = 'mobile'
+              drag(e, 'circle', 'block_canvas', true)
+            }"
           >
             <div
               class="verticals"
