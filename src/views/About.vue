@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="opreation">
+    <!-- <div class="opreation">
       <span
         @click="
           imgUrl =
@@ -15,7 +15,7 @@
       <span @click="isParentNode = !isParentNode">isParentNode 取反</span>
       <span @click="isCloseBtn = !isCloseBtn">isCloseBtn 取反</span>
       <span @click="isReloadBtn = !isReloadBtn">isReloadBtn 取反</span>
-    </div>
+    </div> -->
     <div class="dialog">
       <SliderVerify
         :isShowSelf.sync="isShowSelf"
@@ -77,13 +77,13 @@ export default {
 </script>
 <style scoped lang="stylus">
 .about {
-  margin-top 50px
+  margin-top: 50px;
 
   .dialog {
-    width: 35%;
+    // width: 35%;
     // width: 400px;
     text-align: center;
-    margin: 20px auto 0;
+    // margin: 20px auto 0;
     // border 1px solid
   }
 

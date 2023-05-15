@@ -9,14 +9,27 @@
       :class="{ 'is-border': isBorder }"
       v-show="isShowSelf"
     >
-      <div id="verify_containe" :class="{'is-opt': isCloseBtn || isReloadBtn}">
+      <div
+        id="verify_containe"
+        :class="{'is-opt': isCloseBtn || isReloadBtn}"
+      >
         <div id="canvas_containe">
-          <div class="loading" :style="{'width': `${width}px`, 'height': `${height}px`}" v-if="loading">
-            <loading type="circular" vertical>
+          <div
+            class="loading"
+            :style="{'width': `${width}px`, 'height': `${height}px`}"
+            v-if="loading"
+          >
+            <loading
+              type="circular"
+              vertical
+            >
               <span>加载中...</span>
             </loading>
           </div>
-          <canvas id="bg_canvas" v-show="!loading"></canvas>
+          <canvas
+            id="bg_canvas"
+            v-show="!loading"
+          ></canvas>
           <canvas
             v-show="!loading"
             id="block_canvas"
@@ -27,6 +40,7 @@
                 drag(e, 'block_canvas', 'circle')
               }
             "
+            @click="e => drag(e, 'block_canvas', 'circle', true)"
           ></canvas>
         </div>
         <div class="slide-box">
@@ -39,23 +53,57 @@
                 drag(e, 'circle', 'block_canvas')
               }
             "
+            @click="e => drag(e, 'circle', 'block_canvas', true)"
           >
-            <div class="verticals" v-show="!isTouch">
-              <img src="./images/vertical_line.png" alt="" />
-              <img src="./images/vertical_line.png" alt="" />
-              <img src="./images/vertical_line.png" alt="" />
+            <div
+              class="verticals"
+              v-show="!isTouch"
+            >
+              <img
+                src="./images/vertical_line.png"
+                alt=""
+              />
+              <img
+                src="./images/vertical_line.png"
+                alt=""
+              />
+              <img
+                src="./images/vertical_line.png"
+                alt=""
+              />
             </div>
-            <div class="arrow" v-show="isTouch">
-              <img src="./images/arrow_left.png" alt="" />
-              <img src="./images/circle.png" class="circle" alt="" />
-              <img src="./images/arrow_right.png" alt="" />
+            <div
+              class="arrow"
+              v-show="isTouch"
+            >
+              <img
+                src="./images/arrow_left.png"
+                alt=""
+              />
+              <img
+                src="./images/circle.png"
+                class="circle"
+                alt=""
+              />
+              <img
+                src="./images/arrow_right.png"
+                alt=""
+              />
             </div>
           </div>
           <span id="placehold">拖动滑块完成拼图</span>
         </div>
 
-        <div class="operational" v-if="isCloseBtn || isReloadBtn">
-          <img src="./images/close.png" alt="" @click="close" v-if="isCloseBtn" />
+        <div
+          class="operational"
+          v-if="isCloseBtn || isReloadBtn"
+        >
+          <img
+            src="./images/close.png"
+            alt=""
+            @click="close"
+            v-if="isCloseBtn"
+          />
           <img
             src="./images/reload.png"
             alt=""
@@ -98,7 +146,8 @@ export default {
       bgWidth: null,
       isTouch: false,
       bgRandom: 0,
-      loading: false
+      loading: false,
+      isLoad: false
     }
   },
   props: {
@@ -190,6 +239,9 @@ export default {
       return document.getElementById("canvas_containe");
     },
     initCanvas() {
+      if (this.isLoad) return
+
+      this.isLoad = true
       this.loading = true
 
       const bg_canvas = document.getElementById("bg_canvas")
@@ -231,7 +283,7 @@ export default {
       let width = this.width
 
       if (this.isParentNode) {
-         const sliderVerify = document.getElementById("plugin-slider-verify_containe")
+        const sliderVerify = document.getElementById("plugin-slider-verify_containe")
         // const s_verify_width = sliderVerify.parentNode.clientWidth
         const s_verify_width = sliderVerify.parentNode.getBoundingClientRect().width
         // sliderVerify.style.width = s_verify_width
@@ -272,9 +324,11 @@ export default {
         const ImageData = block_ctx.getImageData(blkTilesW - 3, y, L, L)
         block_canvas.width = L
         block_ctx.putImageData(ImageData, 0, y)
+
+        this.isLoad = false
       }
     },
-    drag(event, targetId, linkageId) {
+    drag(event, targetId, linkageId, isClick = false) {
       // console.log("clickE => ", event);
       this.isTouch = true
       const targetDom = document.querySelector(`#${targetId}`);
@@ -333,6 +387,8 @@ export default {
         linkageDom.style.left = 0
         this.initCanvas()
       };
+
+      if (isClick) up()
 
       if (terminal === 'pc') {
         document.addEventListener("mousemove", move);
@@ -415,9 +471,9 @@ export default {
       }
 
       .loading {
-        display flex
-        justify-content center
-        align-items center
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
 
@@ -449,7 +505,7 @@ export default {
 
         .verticals {
           display: flex;
-          align-item: center;
+          align-items: center;
 
           img {
             width: 8px;
