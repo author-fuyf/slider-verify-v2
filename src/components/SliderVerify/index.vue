@@ -41,7 +41,7 @@
               }
             "
             @click="e => {
-              terminal = 'mobile'
+              terminal = setTerminal()
               drag(e, 'block_canvas', 'circle', true)
             }"
           ></canvas>
@@ -57,7 +57,7 @@
               }
             "
             @click="e => {
-              terminal = 'mobile'
+              terminal = setTerminal()
               drag(e, 'circle', 'block_canvas', true)
             }"
           >
@@ -234,6 +234,14 @@ export default {
     this.initCanvas()
   },
   methods: {
+    isMobile() {
+      return navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      );
+    },
+    setTerminal() {
+      return this.isMobile() ? 'mobile' : 'pc'
+    },
     handlerClick() {
       console.log('handlerClick')
     },
@@ -336,6 +344,7 @@ export default {
     },
     drag(event, targetId, linkageId, isClick = false) {
       // console.log("clickE => ", event);
+
       this.isTouch = true
       const targetDom = document.querySelector(`#${targetId}`);
       const linkageDom = document.querySelector(`#${linkageId}`);
@@ -394,8 +403,6 @@ export default {
         this.initCanvas()
       };
 
-      if (isClick) up()
-
       if (terminal === 'pc') {
         document.addEventListener("mousemove", move);
         document.addEventListener("mouseup", up);
@@ -403,6 +410,8 @@ export default {
         document.addEventListener("touchmove", move);
         document.addEventListener("touchend", up);
       }
+
+      if (isClick) up()
     },
     draw(ctx, xy, type) {
       const x = xy.x, y = xy.y;
