@@ -373,7 +373,7 @@ export default {
         placehold.style.opacity = 0
       };
 
-      const up = () => {
+      const up = (isVerify = true) => {
         this.isTouch = false
         document.removeEventListener("mousemove", move);
         document.removeEventListener("mouseup", up);
@@ -381,23 +381,24 @@ export default {
         document.removeEventListener("touchmove", move);
         document.removeEventListener("touchend", up);
 
-        // console.log('x', x)
+        if (isVerify) {
+          // 图块契合度 左右5 偏差
+          const intervalMax = this.blkTilesW + 5
+          const intervalMin = this.blkTilesW - 5
+          if (x >= intervalMin && x <= intervalMax) {
+            this.verifyResult = true
+            this.$emit('success')
+          } else {
+            this.verifyResult = false
+            this.$emit('fail')
+          }
 
-        // 图块契合度 左右5 偏差
-        const intervalMax = this.blkTilesW + 5
-        const intervalMin = this.blkTilesW - 5
-        if (x >= intervalMin && x <= intervalMax) {
-          this.verifyResult = true
-          this.$emit('success')
-        } else {
-          this.verifyResult = false
-          this.$emit('fail')
+          this.popupShow = true
+          setTimeout(() => {
+            this.popupShow = false
+          }, 500)
         }
 
-        this.popupShow = true
-        setTimeout(() => {
-          this.popupShow = false
-        }, 500)
         targetDom.style.left = 0
         linkageDom.style.left = 0
         this.initCanvas()
@@ -411,7 +412,7 @@ export default {
         document.addEventListener("touchend", up);
       }
 
-      if (isClick) up()
+      if (isClick) up(false)
     },
     draw(ctx, xy, type) {
       const x = xy.x, y = xy.y;
