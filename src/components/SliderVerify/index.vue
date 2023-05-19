@@ -337,7 +337,10 @@ export default {
         const y = Y - r * 2 - 1
         const ImageData = block_ctx.getImageData(blkTilesW - 3, y, L, L)
         block_canvas.width = L
-        block_ctx.putImageData(ImageData, 0, y)
+        // 滑块画布高度重置 避免整个画布都可被拖拽
+        block_canvas.height = Y
+        block_canvas.style.top = `${Y - r * 2}px`
+        block_ctx.putImageData(ImageData, 0, 0)
 
         this.isLoad = false
       }
@@ -482,7 +485,7 @@ export default {
 
       #block_canvas {
         position: absolute;
-        left: 0px;
+        left: 0;
         cursor: pointer;
       }
 
