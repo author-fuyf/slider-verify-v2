@@ -46,14 +46,15 @@ Vue.use(SliderVerify)
 <template>
   <div>
     <SliderVerify
+      :isShowSelf.sync="sliderVConf.isShowSelf"
       :imgUrl="sliderVConf.imgUrl"
       :sText="sliderVConf.sText"
       :eText="sliderVConf.eText"
-      :isShowSelf.sync="sliderVConf.isShowSelf"
       :isBorder="sliderVConf.isBorder"
       :isParentNode="sliderVConf.isParentNode"
       :isCloseBtn="sliderVConf.isCloseBtn"
       :isReloadBtn="sliderVConf.isReloadBtn"
+      :isShowTip="sliderVConf.isShowTip"
       :width="sliderVConf.width"
       :height="sliderVConf.height"
       @reload="emitChange('reload')"
