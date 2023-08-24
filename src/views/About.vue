@@ -26,6 +26,7 @@
         :isCloseBtn="isCloseBtn"
         :isReloadBtn="isReloadBtn"
         :isParentNode="isParentNode"
+        :isShowTip="isShowTip"
         @reload="reload"
         @show="show"
         @hide="hide"
@@ -47,7 +48,8 @@ export default {
       imgUrl: '',
       isCloseBtn: true,
       isReloadBtn: true,
-      isParentNode: false
+      isParentNode: false,
+      isShowTip: true
     }
   },
   mounted() {

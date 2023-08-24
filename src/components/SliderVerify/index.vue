@@ -185,6 +185,10 @@ export default {
       type: String,
       default: '请正确拼合图像'
     },
+    isShowTip: {
+      type: Boolean,
+      default: true
+    },
     isCloseBtn: {
       type: Boolean,
       default: true
@@ -397,7 +401,7 @@ export default {
             this.$emit('fail')
           }
 
-          this.popupShow = true
+          if (this.isShowTip) this.popupShow = true
           setTimeout(() => {
             this.popupShow = false
           }, 500)
