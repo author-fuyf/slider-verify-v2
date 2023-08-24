@@ -31,9 +31,9 @@
       </div>
       <slider-verify :is-show-self.sync="isShowSelf" :width="width" :height="height" :img-url="imgUrl" :s-text="sText"
         :e-text="eText" :is-border="isBorder" :is-close-btn="isCloseBtn" :is-reload-btn="isReloadBtn"
-        :is-parent-node="isParentNode" @reload="emitChange('reload')" @show="emitChange('show')"
-        @hide="emitChange('hide')" @close="emitChange('close')" @success="emitChange('success')"
-        @fail="emitChange('fail')"></slider-verify>
+        :is-parent-node="isParentNode" :is-show-tip="isShowTip" @reload="emitChange('reload')"
+        @show="emitChange('show')" @hide="emitChange('hide')" @close="emitChange('close')"
+        @success="emitChange('success')" @fail="emitChange('fail')"></slider-verify>
     </div>
   </div>
 </body>
@@ -55,7 +55,7 @@
         isCloseBtn: true,
         isReloadBtn: true,
         isParentNode: false,
-        isParentNode: true,
+        isShowTip: true,
       }
     },
     methods: {
