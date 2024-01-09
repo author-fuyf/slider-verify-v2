@@ -34,7 +34,7 @@
             v-show="!loading"
             id="block_canvas"
             @mousedown.prevent="(e) => drag(e, 'block_canvas', 'circle')"
-            @touchstart="
+            @touchstart.prevent="
               (e) => {
                 terminal = 'mobile'
                 drag(e, 'block_canvas', 'circle')
@@ -50,7 +50,7 @@
           <div
             id="circle"
             @mousedown.prevent="(e) => drag(e, 'circle', 'block_canvas')"
-            @touchstart="
+            @touchstart.prevent="
               (e) => {
                 terminal = 'mobile'
                 drag(e, 'circle', 'block_canvas')
